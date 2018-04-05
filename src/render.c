@@ -18,13 +18,13 @@ void		plot_pos(t_point st, t_line l_param, t_img *img)
 	int 	y;
 	int 	i;
 
-	x = ft_round(st.x) + l_param.sx;
-	y = ft_round(st.y);
+	x = (int)(st.x) + l_param.sx;
+	y = (int)(st.y);
 	i = 0;
 	l_param.d = (l_param.dy << 1) - l_param.dx;
 	l_param.d1 = l_param.dy << 1;
 	l_param.d2 = (l_param.dy - l_param.dx) << 1;
-	ft_put_pixel(img, ft_round(st.x), ft_round(st.y), st.color);
+	ft_put_pixel(img, (int)st.x, (int)st.y, st.color);
 	while (i <= l_param.dx)
 	{
 		if ( l_param.d > 0)
@@ -46,8 +46,8 @@ void		plot_neg(t_point st, t_line l_param, t_img *img)
 	int 	y;
 	int 	i;
 
-	x = ft_round(st.x + l_param.sx);
-	y = ft_round(st.y);
+	x = (int)(st.x + l_param.sx);
+	y = (int)(st.y);
 	i = 0;
 	l_param.d = (l_param.dx << 1) - l_param.dy;
 	l_param.d1 = l_param.dx << 1;
@@ -73,8 +73,8 @@ void		draw_segment(t_point st, t_point en, t_img *img)
 {
 	t_line	l_param;
 
-	l_param.dx = abs(ft_round(en.x - st.x));
-	l_param.dy = abs(ft_round(en.y - st.y));
+	l_param.dx = abs((int)(en.x - st.x));
+	l_param.dy = abs((int)(en.y - st.y));
 	l_param.sx = en.x >= st.x ? 1 : -1;
 	l_param.sy = en.y >= st.y ? 1 : -1;
 	if (l_param.dy <= l_param.dx)
